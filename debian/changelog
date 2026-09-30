@@ -1,3 +1,9 @@
+linux-mdf-xx (7.2.8-2) stable; urgency=low
+
+  * Moved modules-load.conf to a dedicated package.
+
+ -- Maria Lisina <sekoohaka.sarisan@gmail.com>  Wed, 30 Sep 2026 04:23:47 +0000
+
 linux-mdf-xx (7.2.8-1) stable; urgency=low
 
   * Updated to 7.2.8.
