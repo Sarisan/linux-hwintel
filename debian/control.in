@@ -31,7 +31,7 @@ Depends: dracut,
          firmware-sof-signed,
          ${misc:Depends}
 Recommends: apparmor
-Suggests: systemd,
+Suggests: linux-image-mdf-xx-common (= ${binary:Version}),
           firmware-realtek
 Description: Linux Kernel for Huawei Matebook D 14 2023 (MDF-XX)
 
@@ -47,3 +47,9 @@ Section: debug
 Architecture: amd64
 Depends: ${misc:Depends}
 Description: Linux Kernel debug for Huawei Matebook D 14 2023 (MDF-XX)
+
+Package: linux-image-mdf-xx-common
+Architecture: amd64
+Depends: systemd,
+         ${misc:Depends}
+Description: Common files for Huawei Matebook D 14 2023 (MDF-XX)
