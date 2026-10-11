@@ -1,3 +1,10 @@
+linux-mdf-xx (7.2.10-1) stable; urgency=low
+
+  * Updated to 7.2.10.
+  * Updated patches.
+
+ -- Maria Lisina <sekoohaka.sarisan@gmail.com>  Sun, 11 Oct 2026 20:43:58 +0000
+
 linux-mdf-xx (7.2.9-2) stable; urgency=low
 
   * Enabled loading EDID data.
