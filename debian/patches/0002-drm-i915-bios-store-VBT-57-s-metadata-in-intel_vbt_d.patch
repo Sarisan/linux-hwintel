@@ -1,4 +1,4 @@
-From e8f033ec2798361bae60db838fb93c0696c02b0f Mon Sep 17 00:00:00 2001
+From b8f597a36b78f46206c59ff78ee442d5e148814e Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Micha=C5=82=20Grzelak?= <michal.grzelak@intel.com>
 Date: Fri, 4 Sep 2026 14:31:42 +0200
 Subject: [PATCH 02/14] drm/i915/bios: store VBT #57's metadata in

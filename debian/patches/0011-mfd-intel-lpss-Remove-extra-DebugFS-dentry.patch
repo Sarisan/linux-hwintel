@@ -1,4 +1,4 @@
-From a1e5adf644c895cb34a928ac073da11984d90804 Mon Sep 17 00:00:00 2001
+From c34d61e2f3a98392efd123c5c7fc16843f3803cd Mon Sep 17 00:00:00 2001
 From: Maria Lisina <sekoohaka.sarisan@gmail.com>
 Date: Wed, 16 Sep 2026 21:23:49 +0500
 Subject: [PATCH 11/14] mfd: intel-lpss: Remove extra DebugFS dentry

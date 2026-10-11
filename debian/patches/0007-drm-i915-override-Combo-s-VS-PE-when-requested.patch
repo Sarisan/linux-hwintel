@@ -1,4 +1,4 @@
-From c32a07343443d531b010f99a3d5d47bbf454a910 Mon Sep 17 00:00:00 2001
+From bfa9b42a0266325524b83057ecdaf97f310302b1 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Micha=C5=82=20Grzelak?= <michal.grzelak@intel.com>
 Date: Mon, 7 Sep 2026 14:27:42 +0200
 Subject: [PATCH 07/14] drm/i915: override Combo's VS/PE when requested

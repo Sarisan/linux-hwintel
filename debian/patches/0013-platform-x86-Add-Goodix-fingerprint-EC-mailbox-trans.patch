@@ -1,4 +1,4 @@
-From d76e491511254403a3336af5b9d52df31954bae2 Mon Sep 17 00:00:00 2001
+From 60c719ec9120e03873c60f2090ccc7e30dad8dc5 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Ertu=C4=9Frul=20Top=C3=A7u?= <ertugtopcu0@gmail.com>
 Date: Sun, 16 Aug 2026 22:49:55 +0300
 Subject: [PATCH 13/14] platform/x86: Add Goodix fingerprint EC mailbox
