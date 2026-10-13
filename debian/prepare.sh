@@ -13,6 +13,6 @@ do
     esac
 done
 
-tar -xC .. -f ../linux-mdf-xx-${version}.tar.xz
-cp -a debian ../linux-mdf-xx-${version}
-make -C ../linux-mdf-xx-${version} -f debian/rules debian/control
+tar -xC .. -f ../linux-${version}.tar.xz
+cp -a debian ../linux-${version}
+make -C ../linux-${version} -f debian/rules debian/control

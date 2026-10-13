@@ -1,11 +1,17 @@
 ## Description
 
-Highly hardened and tailored Linux Kernel for Huawei Matebook D 14 2023 (MDF-XX)
+Highly hardened and tailored Linux Kernel for Huawei laptops
 
 This kernel also includes fixes for vswing/preemph tables  
 Support for Goodix eSPI fingerprint reader (GXFP5130)  
 Burst-Oriented Response Enhancer CPU Scheduler  
 And support for some external hardware
+
+## Support
+
+Currently supported laptops
+
+* Huawei Matebook D 14 2023 (MDF-XX)
 
 ## External
 
@@ -45,7 +51,7 @@ You must have `devscripts` installed
 uscan --download-current-version
 ```
 
-You will see a directory named `linux-mdf-xx-<version>` in the upper directory  
+You will see a directory named `linux-<version>` in the upper directory  
 Go to it and simply run this command to build the packages
 
 ```
@@ -56,7 +62,7 @@ When the building is done you will see `.deb` files in the upper directory
 
 ## Why
 
-All modern distributions provide generic kernel which prefers legacy and common drivers over modern alternatives and platform specific options, therefore I made this kernel to target specific platform (MDF-XX) utilizing modern drivers and platform specific options
+All modern distributions provide generic kernel which prefers legacy and common drivers over modern alternatives and platform specific options, therefore I made this kernel to target specific platform utilizing modern drivers and platform specific options
 
 What benefits will you get from this? In case with this kernel you will notice significantly better performance, smoother experience, faster system boot and significantly better power saving
 

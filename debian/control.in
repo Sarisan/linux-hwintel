@@ -1,4 +1,4 @@
-Source: linux-mdf-xx
+Source: linux
 Section: kernel
 Maintainer: Maria Lisina <sekoohaka.sarisan@gmail.com>
 Build-Depends: debhelper-compat (= 13),
@@ -16,13 +16,13 @@ Build-Depends: debhelper-compat (= 13),
                llvm-22
 Standards-Version: 4.7.4
 
-Package: linux-image-mdf-xx
+Package: linux-image-@NAME@
 Architecture: amd64
-Depends: linux-image-@KERNELVERSION@-mdf-xx (= ${binary:Version}),
+Depends: linux-image-@KERNELVERSION@@LOCALVERSION@ (= ${binary:Version}),
          ${misc:Depends}
-Description: Linux Kernel for Huawei Matebook D 14 2023 (MDF-XX)
+Description: Linux Kernel for Huawei Intel laptops
 
-Package: linux-image-@KERNELVERSION@-mdf-xx
+Package: linux-image-@KERNELVERSION@@LOCALVERSION@
 Architecture: amd64
 Depends: dracut,
          linux-base,
@@ -31,25 +31,25 @@ Depends: dracut,
          firmware-sof-signed,
          ${misc:Depends}
 Recommends: apparmor
-Suggests: linux-image-mdf-xx-common (= ${binary:Version}),
+Suggests: linux-image-@NAME@-common (= ${binary:Version}),
           firmware-realtek
-Description: Linux Kernel for Huawei Matebook D 14 2023 (MDF-XX)
+Description: Linux Kernel for Huawei Intel laptops
 
-Package: linux-image-mdf-xx-dbg
+Package: linux-image-@NAME@-dbg
 Section: debug
 Architecture: amd64
-Depends: linux-image-@KERNELVERSION@-mdf-xx-dbg (= ${binary:Version}),
+Depends: linux-image-@KERNELVERSION@@LOCALVERSION@-dbg (= ${binary:Version}),
          ${misc:Depends}
-Description: Linux Kernel debug for Huawei Matebook D 14 2023 (MDF-XX)
+Description: Linux Kernel debug for Huawei Intel laptops
 
-Package: linux-image-@KERNELVERSION@-mdf-xx-dbg
+Package: linux-image-@KERNELVERSION@@LOCALVERSION@-dbg
 Section: debug
 Architecture: amd64
 Depends: ${misc:Depends}
-Description: Linux Kernel debug for Huawei Matebook D 14 2023 (MDF-XX)
+Description: Linux Kernel debug for Huawei Intel laptops
 
-Package: linux-image-mdf-xx-common
+Package: linux-image-@NAME@-common
 Architecture: amd64
 Depends: systemd,
          ${misc:Depends}
-Description: Common files for Huawei Matebook D 14 2023 (MDF-XX)
+Description: Linux Kernel common files for Huawei Intel laptops
