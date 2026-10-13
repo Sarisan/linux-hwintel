@@ -11,16 +11,17 @@ KERNELRELEASE := $(KERNELVERSION)$(LOCALVERSION)
 
 debian/control: debian/control.in
 	@echo "Generating debian/control"
-
 	sed -e 's/@NAME@/$(NAME)/g' \
-		-e 's/@KERNELVERSION@/$(KERNELVERSION)/g' \
-		-e 's/@LOCALVERSION@/$(LOCALVERSION)/g' \
+		-e 's/@KERNELRELEASE@/$(KERNELRELEASE)/g' \
 		$(CURDIR)/debian/control.in > $(CURDIR)/debian/control
 
+	@echo "Generating debian/linux-image-$(KERNELRELEASE).postinst"
 	sed -e 's/@KERNELRELEASE@/$(KERNELRELEASE)/g' \
-		$(CURDIR)/debian/linux-image.postinst.in > $(CURDIR)/debian/linux-image-$(KERNELVERSION)$(LOCALVERSION).postinst
+		$(CURDIR)/debian/linux-image.postinst.in > $(CURDIR)/debian/linux-image-$(KERNELRELEASE).postinst
+
+	@echo "Generating debian/linux-image-$(KERNELRELEASE).postrm"
 	sed -e 's/@KERNELRELEASE@/$(KERNELRELEASE)/g' \
-		$(CURDIR)/debian/linux-image.postrm.in > $(CURDIR)/debian/linux-image-$(KERNELVERSION)$(LOCALVERSION).postrm
+		$(CURDIR)/debian/linux-image.postrm.in > $(CURDIR)/debian/linux-image-$(KERNELRELEASE).postrm
 
 %:
 	dh $@
@@ -39,19 +40,19 @@ override_dh_auto_test:
 	@echo "Skipping dh_auto_test"
 
 override_dh_auto_install:
-	install -d $(CURDIR)/debian/linux-image-$(KERNELVERSION)$(LOCALVERSION)
-	$(MAKE) -j $(JOBS) O=$(CURDIR)/build ARCH=x86_64 LLVM=$(LLVM) LOCALVERSION=$(LOCALVERSION) INSTALL_MOD_STRIP=1 INSTALL_MOD_PATH=$(CURDIR)/debian/linux-image-$(KERNELVERSION)$(LOCALVERSION)/usr modules_install
-	install -D -m 644 $(CURDIR)/build/System.map $(CURDIR)/debian/linux-image-$(KERNELVERSION)$(LOCALVERSION)/boot/System.map-$(KERNELRELEASE)
-	install -D -m 644 $(CURDIR)/build/.config $(CURDIR)/debian/linux-image-$(KERNELVERSION)$(LOCALVERSION)/boot/config-$(KERNELRELEASE)
-	install -D -m 644 $(CURDIR)/build/arch/x86/boot/bzImage $(CURDIR)/debian/linux-image-$(KERNELVERSION)$(LOCALVERSION)/boot/vmlinuz-$(KERNELRELEASE)
-	rm -f $(CURDIR)/debian/linux-image-$(KERNELVERSION)$(LOCALVERSION)/usr/lib/modules/$(KERNELRELEASE)/build
+	install -d $(CURDIR)/debian/linux-image-$(KERNELRELEASE)
+	$(MAKE) -j $(JOBS) O=$(CURDIR)/build ARCH=x86_64 LLVM=$(LLVM) LOCALVERSION=$(LOCALVERSION) INSTALL_MOD_STRIP=1 INSTALL_MOD_PATH=$(CURDIR)/debian/linux-image-$(KERNELRELEASE)/usr modules_install
+	install -D -m 644 $(CURDIR)/build/System.map $(CURDIR)/debian/linux-image-$(KERNELRELEASE)/boot/System.map-$(KERNELRELEASE)
+	install -D -m 644 $(CURDIR)/build/.config $(CURDIR)/debian/linux-image-$(KERNELRELEASE)/boot/config-$(KERNELRELEASE)
+	install -D -m 644 $(CURDIR)/build/arch/x86/boot/bzImage $(CURDIR)/debian/linux-image-$(KERNELRELEASE)/boot/vmlinuz-$(KERNELRELEASE)
+	rm -f $(CURDIR)/debian/linux-image-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build
 
-	install -d $(CURDIR)/debian/linux-image-$(KERNELVERSION)$(LOCALVERSION)-dbg
-	$(MAKE) -j $(JOBS) O=$(CURDIR)/build ARCH=x86_64 LLVM=$(LLVM) LOCALVERSION=$(LOCALVERSION) INSTALL_MOD_PATH=$(CURDIR)/debian/linux-image-$(KERNELVERSION)$(LOCALVERSION)-dbg/usr/lib/debug modules_install
-	install -D -m 644 $(CURDIR)/build/System.map $(CURDIR)/debian/linux-image-$(KERNELVERSION)$(LOCALVERSION)-dbg/usr/lib/debug/lib/modules/$(KERNELRELEASE)/System.map
-	install -D -m 644 $(CURDIR)/build/vmlinux $(CURDIR)/debian/linux-image-$(KERNELVERSION)$(LOCALVERSION)-dbg/usr/lib/debug/lib/modules/$(KERNELRELEASE)/vmlinux
+	install -d $(CURDIR)/debian/linux-image-$(KERNELRELEASE)-dbg
+	$(MAKE) -j $(JOBS) O=$(CURDIR)/build ARCH=x86_64 LLVM=$(LLVM) LOCALVERSION=$(LOCALVERSION) INSTALL_MOD_PATH=$(CURDIR)/debian/linux-image-$(KERNELRELEASE)-dbg/usr/lib/debug modules_install
+	install -D -m 644 $(CURDIR)/build/System.map $(CURDIR)/debian/linux-image-$(KERNELRELEASE)-dbg/usr/lib/debug/lib/modules/$(KERNELRELEASE)/System.map
+	install -D -m 644 $(CURDIR)/build/vmlinux $(CURDIR)/debian/linux-image-$(KERNELRELEASE)-dbg/usr/lib/debug/lib/modules/$(KERNELRELEASE)/vmlinux
 
-	install -D -m 644 $(CURDIR)/debian/modules-load.conf $(CURDIR)/debian/linux-image-$(NAME)-common/etc/modules-load.d/$(LOCALVERSION).conf
+	install -D -m 644 $(CURDIR)/debian/modules-load.conf $(CURDIR)/debian/linux-image-$(NAME)-common/etc/modules-load.d/$(NAME).conf
 
 override_dh_installdebconf:
 	@echo "Skipping dh_installdebconf"
@@ -60,4 +61,4 @@ override_dh_dwz:
 	@echo "Skipping dh_dwz"
 
 override_dh_strip:
-	dh_strip --dbg-package=linux-image-$(KERNELVERSION)$(LOCALVERSION)-dbg
+	dh_strip --dbg-package=linux-image-$(KERNELRELEASE)-dbg

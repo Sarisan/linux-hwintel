@@ -18,11 +18,11 @@ Standards-Version: 4.7.4
 
 Package: linux-image-@NAME@
 Architecture: amd64
-Depends: linux-image-@KERNELVERSION@@LOCALVERSION@ (= ${binary:Version}),
+Depends: linux-image-@KERNELRELEASE@ (= ${binary:Version}),
          ${misc:Depends}
 Description: Linux Kernel for Huawei Intel laptops
 
-Package: linux-image-@KERNELVERSION@@LOCALVERSION@
+Package: linux-image-@KERNELRELEASE@
 Architecture: amd64
 Depends: dracut,
          linux-base,
@@ -38,11 +38,11 @@ Description: Linux Kernel for Huawei Intel laptops
 Package: linux-image-@NAME@-dbg
 Section: debug
 Architecture: amd64
-Depends: linux-image-@KERNELVERSION@@LOCALVERSION@-dbg (= ${binary:Version}),
+Depends: linux-image-@KERNELRELEASE@-dbg (= ${binary:Version}),
          ${misc:Depends}
 Description: Linux Kernel debug for Huawei Intel laptops
 
-Package: linux-image-@KERNELVERSION@@LOCALVERSION@-dbg
+Package: linux-image-@KERNELRELEASE@-dbg
 Section: debug
 Architecture: amd64
 Depends: ${misc:Depends}
