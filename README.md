@@ -1,6 +1,6 @@
 ## Description
 
-Highly hardened and tailored Linux Kernel for Huawei laptops
+Highly hardened and tailored Linux Kernel for Huawei Intel laptops
 
 This kernel also includes fixes for vswing/preemph tables  
 Support for Goodix eSPI fingerprint reader (GXFP5130)  
