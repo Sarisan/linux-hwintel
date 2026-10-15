@@ -1,3 +1,9 @@
+linux (7.2.11-1) stable; urgency=low
+
+  * Updated to 7.2.11.
+
+ -- Maria Lisina <sekoohaka.sarisan@gmail.com>  Thu, 15 Oct 2026 18:44:41 +0000
+
 linux (7.2.10-2) stable; urgency=low
 
   * Rebranded to hwintel
