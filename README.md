@@ -12,6 +12,7 @@ And support for some external hardware
 Currently supported laptops
 
 * Huawei Matebook D 14 2023 (MDF-XX)
+* Huawei Matebook D 14 2024 (MDG-XX)
 
 ## External
 
